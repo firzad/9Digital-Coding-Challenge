@@ -1,3 +1,6 @@
+// server.js - 9 Digital Coding Challenge
+// Firzad Ahammed
+
 const express = require('express');
 const bodyParser = require('body-parser');
 
@@ -6,7 +9,6 @@ const app = express();
 app.use(bodyParser.json());
 
 app.use((err, _req, res, next) => {
-    // console.error(err);
     // body-parser sets status to 400 for failed JSON Parsing
     if (err.status === 400)
         return res.status(err.status).json({
@@ -45,5 +47,5 @@ app.post('/data', (req, res) => {
 // Listen to the App Engine-specified port, or 8080 otherwise
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
-    // console.log(`Server listening on port ${PORT}...`);
+    //
 });
